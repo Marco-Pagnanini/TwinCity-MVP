@@ -1,24 +1,4 @@
-/**
- * TwinCity — Validation State Tokens
- *
- * Semantic tokens for the five report validation states shown in the design
- * system: Validated, In Review, Rejected, PRESENT, MISSING.
- *
- * Each state provides:
- *  - label       Human-readable display name
- *  - color       Foreground / icon color
- *  - surface     Background chip / badge color
- *  - border      Optional border color (same hue, slightly stronger)
- */
-
 import { Colors, Palette } from './colors';
-
-export type ValidationStatus =
-  | 'validated'
-  | 'inReview'
-  | 'rejected'
-  | 'present'
-  | 'missing';
 
 export interface ValidationStateToken {
   label: string;
@@ -26,6 +6,10 @@ export interface ValidationStateToken {
   surface: string;
   border: string;
 }
+
+// ─── Validation status (AI / community review result) ─────────────────────────
+
+export type ValidationStatus = 'validated' | 'inReview' | 'rejected';
 
 export const ValidationState: Record<ValidationStatus, ValidationStateToken> = {
   validated: {
@@ -46,16 +30,23 @@ export const ValidationState: Record<ValidationStatus, ValidationStateToken> = {
     surface: Colors.rejectedSurface,
     border: Palette.errLight,
   },
-  present: {
-    label: 'PRESENT',
-    color: Colors.present,
-    surface: Colors.validatedSurface,
-    border: Palette.okLight,
-  },
+};
+
+// ─── Presence status (physical state of the barrier) ─────────────────────────
+
+export type PresenceStatus = 'missing' | 'present';
+
+export const PresenceState: Record<PresenceStatus, ValidationStateToken> = {
   missing: {
-    label: 'MISSING',
+    label: 'Missing',
     color: Colors.missing,
     surface: Colors.rejectedSurface,
     border: Palette.errLight,
   },
-} as const;
+  present: {
+    label: 'Present',
+    color: Colors.present,
+    surface: Colors.validatedSurface,
+    border: Palette.okLight,
+  },
+};
