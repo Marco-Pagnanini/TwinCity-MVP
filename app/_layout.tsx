@@ -53,6 +53,7 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="capture" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
         <Stack.Screen name="report" options={{ headerShown: false }} />
+        <Stack.Screen name="submitted" options={{ headerShown: false }} />
         <Stack.Screen name="bottom-info" options={{ headerShown: false, presentation: 'formSheet', sheetAllowedDetents: [0.5, 0.75], sheetGrabberVisible: true, sheetCornerRadius: 20, }} />
       </Stack>
     </View>

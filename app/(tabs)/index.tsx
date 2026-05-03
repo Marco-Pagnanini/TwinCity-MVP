@@ -55,7 +55,7 @@ export default function HomeScreen() {
                     <Marker
                         key={r.id}
                         coordinate={{ latitude: r.lat, longitude: r.lng }}
-                        pinColor={PIN_COLORS[r.status]}
+                        pinColor={r.status === 'inReview' ? Palette.warnLight : PIN_COLORS[r.presence]}
                         onPress={() => router.push({ pathname: '/bottom-info', params: { id: r.id } })}
                     />
                 ))}

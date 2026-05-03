@@ -49,8 +49,7 @@ export default function ReportScreen() {
     const [confirmed, setConfirmed] = useState(false);
 
     const handleSubmit = () => {
-        // TODO: send to API
-        router.replace('/(tabs)' as any);
+        router.replace('/submitted' as any);
     };
 
     return (
