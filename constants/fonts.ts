@@ -12,13 +12,24 @@
 // ─── Font families ────────────────────────────────────────────────────────────
 
 export const FontFamily = {
-  /** Used for large display headings and brand moments */
+  // ── Fredoka (display / headings) ──────────────────────────────────────────
+  /** Regular weight — Fredoka */
   display: 'Fredoka',
+  /** SemiBold weight — Fredoka-SemiBold */
+  displaySemiBold: 'Fredoka-SemiBold',
+  /** Bold weight — Fredoka-Bold */
+  displayBold: 'Fredoka-Bold',
 
-  /** Used for body copy, labels and most UI text */
+  // ── Nunito (body / UI text) ───────────────────────────────────────────────
+  /** Regular weight — Nunito */
   body: 'Nunito',
+  /** SemiBold weight — Nunito-SemiBold */
+  bodySemiBold: 'Nunito-SemiBold',
+  /** Bold weight — Nunito-Bold */
+  bodyBold: 'Nunito-Bold',
 
-  /** Used for coordinates, AI scores and any monospaced data */
+  // ── JetBrains Mono (coordinates / scores) ────────────────────────────────
+  /** Regular weight — JetBrainsMono */
   mono: 'JetBrainsMono',
 } as const;
 
