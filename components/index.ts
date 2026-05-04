@@ -23,3 +23,6 @@ export type { LoginFeatureCardProps } from './LoginFeatureCard';
 
 export { default as StepItem } from './StepItem';
 export type { StepItemProps } from './StepItem';
+
+export { default as ReportImagePreview } from './ReportImagePreview';
+export type { ReportImagePreviewProps } from './ReportImagePreview';

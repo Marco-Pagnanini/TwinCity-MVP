@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import { Colors, FontFamily, FontSize, Palette, PresenceState, Radius, Spacing, ValidationState } from '@/constants';
+import { ReportImagePreview } from '@/components';
 import { MOCK_REPORTS } from '@/data/mock_reports';
 
 export default function BottomInfo() {
@@ -33,11 +34,14 @@ export default function BottomInfo() {
             contentContainerStyle={styles.content}
             showsVerticalScrollIndicator={false}
         >
-            {/* Photo placeholder */}
-            <View style={styles.photo}>
-                <Ionicons name="image-outline" size={40} color={Palette.gray400} />
-                <Text style={styles.photoLabel}>No photo yet</Text>
-            </View>
+            {report.image ? (
+                <ReportImagePreview image={report.image} point={report.point} />
+            ) : (
+                <View style={styles.photo}>
+                    <Ionicons name="image-outline" size={40} color={Palette.gray400} />
+                    <Text style={styles.photoLabel}>No photo yet</Text>
+                </View>
+            )}
 
             {/* Type + address */}
             <View style={styles.titleRow}>

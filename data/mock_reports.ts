@@ -1,4 +1,10 @@
 import type { PresenceStatus, ValidationStatus } from '@/constants';
+import type { ImageSourcePropType } from 'react-native';
+
+export interface ImagePoint {
+    x: number;
+    y: number;
+}
 
 export interface Report {
     id: string;
@@ -10,62 +16,35 @@ export interface Report {
     icon: string;
     lat: number;
     lng: number;
+    image: ImageSourcePropType;
+    point: ImagePoint[];
 }
 
 export const MOCK_REPORTS: Report[] = [
     {
         id: '1',
         type: 'Ramp',
-        address: 'Via Roma, 24',
+        address: '29 Lungomare Sergio Piermanni',
+        time: '2h ago',
+        status: 'validated',
+        presence: 'present',
+        icon: 'arrow-up-circle-outline',
+        lat: 43.3023247,
+        lng: 13.7370101,
+        image: require('@/data/images/valid_ramp.png'),
+        point: [{ x: 0.2, y: 0.45 }]
+    },
+    {
+        id: '2',
+        type: 'Ramp',
+        address: '29 Lungomare Sergio Piermanni',
         time: '2h ago',
         status: 'validated',
         presence: 'missing',
         icon: 'arrow-up-circle-outline',
-        lat: 45.0703,
-        lng: 7.6869,
-    },
-    {
-        id: '2',
-        type: 'Crossing',
-        address: 'Piazza Garibaldi',
-        time: '3d ago',
-        status: 'inReview',
-        presence: 'missing',
-        icon: 'add-circle-outline',
-        lat: 45.0723,
-        lng: 7.6855,
-    },
-    {
-        id: '3',
-        type: 'Curb cut',
-        address: 'Corso Re Umberto, 3',
-        time: '5d ago',
-        status: 'validated',
-        presence: 'missing',
-        icon: 'close-circle-outline',
-        lat: 45.0685,
-        lng: 7.6890,
-    },
-    {
-        id: '4',
-        type: 'Audio crossing',
-        address: 'Piazza Vittorio',
-        time: '1w ago',
-        status: 'validated',
-        presence: 'present',
-        icon: 'arrow-up-circle-outline',
-        lat: 45.0710,
-        lng: 7.6920,
-    },
-    {
-        id: '5',
-        type: 'Parking',
-        address: 'Via Nizza, 10',
-        time: '2w ago',
-        status: 'inReview',
-        presence: 'missing',
-        icon: 'add-circle-outline',
-        lat: 45.0725,
-        lng: 7.6885,
+        lat: 43.30232,
+        lng: 13.737,
+        image: require('@/data/images/invalid_ramp.png'),
+        point: [{ x: 0.5, y: 0.5 }]
     },
 ];

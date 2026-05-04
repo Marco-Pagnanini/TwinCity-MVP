@@ -8,7 +8,8 @@ import {
     TouchableOpacity,
     View,
 } from 'react-native';
-import MapView, { Marker, PROVIDER_DEFAULT } from 'react-native-maps';
+import MapView from 'react-native-map-clustering';
+import { Marker, PROVIDER_DEFAULT } from 'react-native-maps';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Colors, FontFamily, FontSize, Palette, Radius, Shadow, Spacing } from '@/constants';
@@ -21,9 +22,9 @@ const PIN_COLORS: Record<string, string> = {
     present: Colors.present,
 };
 
-const TORINO_REGION = {
-    latitude: 45.0703,
-    longitude: 7.6869,
+const REGION = {
+    latitude: 43.0703,
+    longitude: 13.6869,
     latitudeDelta: 0.018,
     longitudeDelta: 0.018,
 };
@@ -31,6 +32,10 @@ const TORINO_REGION = {
 export default function HomeScreen() {
     const insets = useSafeAreaInsets();
     const [_location, setLocation] = useState<{ lat: number; lng: number } | null>(null);
+    const myLocation = _location ? {
+        latitude: _location.lat, longitude: _location.lng, latitudeDelta: 0.018,
+        longitudeDelta: 0.018
+    } : null;
     const [search] = useState<string>('Centro · Torino');
 
     useEffect(() => {
@@ -47,7 +52,7 @@ export default function HomeScreen() {
             <MapView
                 style={StyleSheet.absoluteFill}
                 provider={PROVIDER_DEFAULT}
-                initialRegion={TORINO_REGION}
+                initialRegion={myLocation || REGION}
                 showsUserLocation
                 showsMyLocationButton={false}
             >
